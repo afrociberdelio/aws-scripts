@@ -21,16 +21,16 @@ def create_iam_role(acctount, role_name, policy_name, policy_document, assume_ro
         iam_client = session.client('iam')
 
         # Create Role
-        print(f"Criando a role '{role_name}'...")
+        print(f"Creating the role '{role_name}'...")
         role_response = iam_client.create_role(
             RoleName=role_name,
             AssumeRolePolicyDocument=json.dumps(assume_role_policy),
-            Description="Aplicacao interna para busca de EC2 em todas as contas",
+            Description="Internal application to search for EC2 in all accounts",
         )
-        print(f"Role '{role_name}' criada com sucesso.")
+        print(f"Role '{role_name}' successfully created.")
 
         # Create Policy
-        print(f"Criando a policy '{policy_name}'...")
+        print(f"Creating the policy '{policy_name}'...")
         policy_response = iam_client.create_policy(
             PolicyName=policy_name,
             PolicyDocument=json.dumps(policy_document),
@@ -38,7 +38,7 @@ def create_iam_role(acctount, role_name, policy_name, policy_document, assume_ro
         )
         policy_arn = policy_response['Policy']['Arn']
 
-        print(f"Policy '{policy_name}' created successfully. ARN: {policy_arn}, conta {acctount}")
+        print(f"Policy '{policy_name}' created successfully. ARN: {policy_arn}, account {acctount}")
 
         # Attach policy to role
         print(f"Attached to policy '{policy_name}' à role '{role_name}'...")
