@@ -25,7 +25,7 @@ def create_iam_role(acctount, role_name, policy_name, policy_document, assume_ro
         role_response = iam_client.create_role(
             RoleName=role_name,
             AssumeRolePolicyDocument=json.dumps(assume_role_policy),
-            Description="Internal application to search for EC2 in all accounts",
+            Description="Example: Internal application to search for EC2 in all accounts",
         )
         print(f"Role '{role_name}' successfully created.")
 
@@ -41,7 +41,7 @@ def create_iam_role(acctount, role_name, policy_name, policy_document, assume_ro
         print(f"Policy '{policy_name}' created successfully. ARN: {policy_arn}, account {acctount}")
 
         # Attach policy to role
-        print(f"Attached to policy '{policy_name}' à role '{role_name}'...")
+        print(f"Attached to policy '{policy_name}' to role '{role_name}'...")
         iam_client.attach_role_policy(
             RoleName=role_name,
             PolicyArn=policy_arn,
@@ -57,7 +57,7 @@ def create_iam_role(acctount, role_name, policy_name, policy_document, assume_ro
 
 if __name__ == "__main__":
 
-    accounts = ['aws-my-company-1','aws-my-company-2','aws-my-company-3','aws-my-company-4']
+    accounts = ['aws-profile-company-1','aws-profile-company-2','aws-profile-company-3','aws-profile-company-4']
 
     # Nome da Role e Policy
     role_name = "rolepolicy-name-example"
