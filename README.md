@@ -1,4 +1,5 @@
-# [Roles/create_assume_role.py](#script)
+# [Roles/create_assume_role.py](Roles/create_assume_role.py)
+
 
 ## Description
 This Python script automates the creation of AWS IAM roles and policies across multiple AWS accounts. It uses `boto3` to interact with AWS IAM services, creating roles with predefined policies and attaching them to the accounts specified in the script.
